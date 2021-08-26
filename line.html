@@ -1,0 +1,105 @@
+<!-- Styles -->
+<style>
+    #chartdiv {
+      width: 100%;
+      height: 500px;
+    }
+    
+    </style>
+    
+    <!-- Resources -->
+    <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/spiritedaway.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+    
+    <!-- Chart code -->
+    <script>
+    am4core.ready(function() {
+    
+    // Themes begin
+    am4core.useTheme(am4themes_spiritedaway);
+    am4core.useTheme(am4themes_animated);
+    // Themes end
+    
+    
+    
+    // Create chart instance
+    var chart = am4core.create("chartdiv", am4charts.XYChart);
+
+    chart.numberFormatter.numberFormat = "#";
+    chart.legend = new am4charts.Legend();
+    
+    // Create axes
+    var yearAxis = chart.xAxes.push(new am4charts.ValueAxis());
+    yearAxis.dataFields.category = "ano";
+    yearAxis.adjustLabelPrecision = false;
+    yearAxis.maxPrecision = 0;
+    
+    var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+    
+    // Create series
+    var seriesM = chart.series.push(new am4charts.LineSeries());
+    seriesM.dataFields.valueY = "value";
+    seriesM.dataFields.valueX = "ano";
+    seriesM.name = "MESTRADO";
+    seriesM.strokeWidth = 3;
+
+    var seriesD = chart.series.push(new am4charts.LineSeries());
+    seriesD.dataFields.valueY = "value";
+    seriesD.dataFields.valueX = "ano";
+    seriesD.name = "DOUTORADO";
+    seriesD.strokeWidth = 3;
+    seriesD.stroke = chart.colors.next();
+
+    var seriesME = chart.series.push(new am4charts.LineSeries());
+    seriesME.dataFields.valueY = "value";
+    seriesME.dataFields.valueX = "ano";
+    seriesME.name = "MESTRADO PROFISSIONALIZANTE";
+    seriesME.strokeWidth = 3;
+    seriesME.stroke = chart.colors.next();
+
+    seriesM.data = [{"ano":"2003","nivel":"MESTRADO","value":"3"},{"ano":"2004","nivel":"MESTRADO","value":"2"},{"ano":"2005","nivel":"MESTRADO","value":"2"},{"ano":"2006","nivel":"MESTRADO","value":"4"},{"ano":"2007","nivel":"MESTRADO","value":"2"},{"ano":"2008","nivel":"MESTRADO","value":"3"},{"ano":"2009","nivel":"MESTRADO","value":"4"},{"ano":"2010","nivel":"MESTRADO","value":"9"},{"ano":"2011","nivel":"MESTRADO","value":"13"},{"ano":"2012","nivel":"MESTRADO","value":"9"},{"ano":"2013","nivel":"MESTRADO","value":"13"},{"ano":"2014","nivel":"MESTRADO","value":"11"},{"ano":"2015","nivel":"MESTRADO","value":"18"},{"ano":"2016","nivel":"MESTRADO","value":"17"},{"ano":"2017","nivel":"MESTRADO","value":"15"},{"ano":"2018","nivel":"MESTRADO","value":"7"},{"ano":"2019","nivel":"MESTRADO","value":"10"},{"ano":"2020","nivel":"MESTRADO","value":"13"}];
+    seriesD.data = [{"ano":"2005","nivel":"DOUTORADO","value":"1"},{"ano":"2007","nivel":"DOUTORADO","value":"1"},{"ano":"2008","nivel":"DOUTORADO","value":"3"},{"ano":"2009","nivel":"DOUTORADO","value":"1"},{"ano":"2010","nivel":"DOUTORADO","value":"2"},{"ano":"2011","nivel":"DOUTORADO","value":"3"},{"ano":"2012","nivel":"DOUTORADO","value":"6"},{"ano":"2013","nivel":"DOUTORADO","value":"1"},{"ano":"2014","nivel":"DOUTORADO","value":"3"},{"ano":"2015","nivel":"DOUTORADO","value":"4"},{"ano":"2016","nivel":"DOUTORADO","value":"7"},{"ano":"2017","nivel":"DOUTORADO","value":"7"},{"ano":"2018","nivel":"DOUTORADO","value":"3"},{"ano":"2019","nivel":"DOUTORADO","value":"1"},{"ano":"2020","nivel":"DOUTORADO","value":"7"}];
+    seriesME.data = [{"ano":"2009","nivel":"MESTRADO PROFISSIONALIZANTE","value":"1"},{"ano":"2010","nivel":"MESTRADO PROFISSIONALIZANTE","value":"2"},{"ano":"2011","nivel":"MESTRADO PROFISSIONALIZANTE","value":"1"},{"ano":"2012","nivel":"MESTRADO PROFISSIONALIZANTE","value":"2"},{"ano":"2013","nivel":"MESTRADO PROFISSIONALIZANTE","value":"2"},{"ano":"2014","nivel":"MESTRADO PROFISSIONALIZANTE","value":"2"},{"ano":"2015","nivel":"MESTRADO PROFISSIONALIZANTE","value":"6"},{"ano":"2016","nivel":"MESTRADO PROFISSIONALIZANTE","value":"13"},{"ano":"2017","nivel":"MESTRADO PROFISSIONALIZANTE","value":"5"},{"ano":"2018","nivel":"MESTRADO PROFISSIONALIZANTE","value":"10"},{"ano":"2019","nivel":"MESTRADO PROFISSIONALIZANTE","value":"3"}];
+
+    var bulletM = seriesM.bullets.push(new am4charts.CircleBullet());
+    bulletM.circle.fill = am4core.color("#fff");
+    bulletM.circle.strokeWidth = 3;
+
+    var bulletD = seriesD.bullets.push(new am4charts.CircleBullet());
+    bulletD.circle.fill = am4core.color("#fff");
+    bulletD.circle.strokeWidth = 3;
+
+    var bulletME = seriesME.bullets.push(new am4charts.CircleBullet());
+    bulletME.circle.fill = am4core.color("#fff");
+    bulletME.circle.strokeWidth = 3;
+    
+    // Add cursor
+    chart.cursor = new am4charts.XYCursor();
+    chart.cursor.fullWidthLineX = true;
+    chart.cursor.xAxis = yearAxis;
+    chart.cursor.lineX.strokeWidth = 0;
+    chart.cursor.lineX.fill = am4core.color("#000");
+    chart.cursor.lineX.fillOpacity = 0.1;
+    
+    // Add scrollbar
+    chart.scrollbarX = new am4core.Scrollbar();
+    
+    // Add a guide
+    let range = valueAxis.axisRanges.create();
+    range.value = 5.72;
+    range.grid.stroke = am4core.color("#396478");
+    range.grid.strokeWidth = 1;
+    range.grid.strokeOpacity = 1;
+    range.grid.strokeDasharray = "3,3";
+    range.label.inside = true;
+    range.label.text = "Média";
+    range.label.fill = range.grid.stroke;
+    range.label.verticalCenter = "bottom";
+    
+    }); // end am4core.ready()
+    </script>
+    
+    <!-- HTML -->
+    <div id="chartdiv"></div>
