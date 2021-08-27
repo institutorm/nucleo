@@ -44,20 +44,21 @@
     seriesM.dataFields.valueX = "ano";
     seriesM.name = "MESTRADO";
     seriesM.strokeWidth = 3;
+    seriesM.stroke="#C4D600"
 
     var seriesD = chart.series.push(new am4charts.LineSeries());
     seriesD.dataFields.valueY = "value";
     seriesD.dataFields.valueX = "ano";
     seriesD.name = "DOUTORADO";
     seriesD.strokeWidth = 3;
-    seriesD.stroke = chart.colors.next();
+    seriesD.stroke = "#FF9800"
 
     var seriesME = chart.series.push(new am4charts.LineSeries());
     seriesME.dataFields.valueY = "value";
     seriesME.dataFields.valueX = "ano";
     seriesME.name = "MESTRADO PROFISSIONALIZANTE";
     seriesME.strokeWidth = 3;
-    seriesME.stroke = chart.colors.next();
+    seriesME.stroke = "#EF6A00"
 
     seriesM.data = [{"ano":"2003","nivel":"MESTRADO","value":"3"},{"ano":"2004","nivel":"MESTRADO","value":"2"},{"ano":"2005","nivel":"MESTRADO","value":"2"},{"ano":"2006","nivel":"MESTRADO","value":"4"},{"ano":"2007","nivel":"MESTRADO","value":"2"},{"ano":"2008","nivel":"MESTRADO","value":"3"},{"ano":"2009","nivel":"MESTRADO","value":"4"},{"ano":"2010","nivel":"MESTRADO","value":"9"},{"ano":"2011","nivel":"MESTRADO","value":"13"},{"ano":"2012","nivel":"MESTRADO","value":"9"},{"ano":"2013","nivel":"MESTRADO","value":"13"},{"ano":"2014","nivel":"MESTRADO","value":"11"},{"ano":"2015","nivel":"MESTRADO","value":"18"},{"ano":"2016","nivel":"MESTRADO","value":"17"},{"ano":"2017","nivel":"MESTRADO","value":"15"},{"ano":"2018","nivel":"MESTRADO","value":"7"},{"ano":"2019","nivel":"MESTRADO","value":"10"},{"ano":"2020","nivel":"MESTRADO","value":"13"}];
     seriesD.data = [{"ano":"2005","nivel":"DOUTORADO","value":"1"},{"ano":"2007","nivel":"DOUTORADO","value":"1"},{"ano":"2008","nivel":"DOUTORADO","value":"3"},{"ano":"2009","nivel":"DOUTORADO","value":"1"},{"ano":"2010","nivel":"DOUTORADO","value":"2"},{"ano":"2011","nivel":"DOUTORADO","value":"3"},{"ano":"2012","nivel":"DOUTORADO","value":"6"},{"ano":"2013","nivel":"DOUTORADO","value":"1"},{"ano":"2014","nivel":"DOUTORADO","value":"3"},{"ano":"2015","nivel":"DOUTORADO","value":"4"},{"ano":"2016","nivel":"DOUTORADO","value":"7"},{"ano":"2017","nivel":"DOUTORADO","value":"7"},{"ano":"2018","nivel":"DOUTORADO","value":"3"},{"ano":"2019","nivel":"DOUTORADO","value":"1"},{"ano":"2020","nivel":"DOUTORADO","value":"7"}];
