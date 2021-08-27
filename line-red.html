@@ -1,0 +1,129 @@
+<!-- Styles -->
+<style>
+    #chartdiv {
+      width: 100%;
+      height: 500px;
+    }
+    
+    </style>
+    
+    <!-- Resources -->
+    <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/spiritedaway.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+    
+    <!-- Chart code -->
+    <script>
+    am4core.ready(function() {
+    
+    // Themes begin
+    am4core.useTheme(am4themes_spiritedaway);
+    am4core.useTheme(am4themes_animated);
+    // Themes end
+    
+    
+    
+    // Create chart instance
+    var chart = am4core.create("chartdiv", am4charts.XYChart);
+
+    chart.numberFormatter.numberFormat = "#";
+    chart.legend = new am4charts.Legend();
+    
+    // Create axes
+    var yearAxis = chart.xAxes.push(new am4charts.ValueAxis());
+    yearAxis.dataFields.category = "ano";
+    yearAxis.adjustLabelPrecision = false;
+    yearAxis.maxPrecision = 0;
+    
+    var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+    
+    // Create series
+    var seriesM = chart.series.push(new am4charts.LineSeries());
+    seriesM.dataFields.valueY = "value";
+    seriesM.dataFields.valueX = "ano";
+    seriesM.name = "MESTRADO";
+    seriesM.strokeWidth = 3;
+
+    var seriesD = chart.series.push(new am4charts.LineSeries());
+    seriesD.dataFields.valueY = "value";
+    seriesD.dataFields.valueX = "ano";
+    seriesD.name = "DOUTORADO";
+    seriesD.strokeWidth = 3;
+    seriesD.stroke = chart.colors.next();
+
+    var seriesME = chart.series.push(new am4charts.LineSeries());
+    seriesME.dataFields.valueY = "value";
+    seriesME.dataFields.valueX = "ano";
+    seriesME.name = "MESTRADO PROFISSIONALIZANTE";
+    seriesME.strokeWidth = 3;
+    seriesME.stroke = chart.colors.next();
+
+    var seriesDI = chart.series.push(new am4charts.LineSeries());
+    seriesDI.dataFields.valueY = "value";
+    seriesDI.dataFields.valueX = "ano";
+    seriesDI.name = "DISSERTAÇÃO";
+    seriesDI.strokeWidth = 3;
+    seriesDI.stroke = chart.colors.next();
+
+    var seriesTE = chart.series.push(new am4charts.LineSeries());
+    seriesTE.dataFields.valueY = "value";
+    seriesTE.dataFields.valueX = "ano";
+    seriesTE.name = "TESE";
+    seriesTE.strokeWidth = 3;
+    seriesTE.stroke = chart.colors.next();
+
+    seriesM.data = [{"ano":"1997","nivel":"MESTRADO","value":"1"},{"ano":"1999","nivel":"MESTRADO","value":"2"},{"ano":"2000","nivel":"MESTRADO","value":"2"},{"ano":"2002","nivel":"MESTRADO","value":"3"},{"ano":"2003","nivel":"MESTRADO","value":"5"},{"ano":"2004","nivel":"MESTRADO","value":"9"},{"ano":"2005","nivel":"MESTRADO","value":"12"},{"ano":"2006","nivel":"MESTRADO","value":"7"},{"ano":"2007","nivel":"MESTRADO","value":"13"},{"ano":"2008","nivel":"MESTRADO","value":"21"},{"ano":"2009","nivel":"MESTRADO","value":"25"},{"ano":"2010","nivel":"MESTRADO","value":"24"},{"ano":"2011","nivel":"MESTRADO","value":"35"},{"ano":"2012","nivel":"MESTRADO","value":"28"},{"ano":"2013","nivel":"MESTRADO","value":"59"},{"ano":"2014","nivel":"MESTRADO","value":"65"},{"ano":"2015","nivel":"MESTRADO","value":"99"},{"ano":"2016","nivel":"MESTRADO","value":"90"},{"ano":"2017","nivel":"MESTRADO","value":"135"},{"ano":"2018","nivel":"MESTRADO","value":"47"},{"ano":"2019","nivel":"MESTRADO","value":"33"}];
+    seriesD.data = [{"ano":"1996","nivel":"DOUTORADO","value":"1"},{"ano":"2001","nivel":"DOUTORADO","value":"2"},{"ano":"2002","nivel":"DOUTORADO","value":"2"},{"ano":"2003","nivel":"DOUTORADO","value":"2"},{"ano":"2004","nivel":"DOUTORADO","value":"5"},{"ano":"2005","nivel":"DOUTORADO","value":"1"},{"ano":"2006","nivel":"DOUTORADO","value":"2"},{"ano":"2007","nivel":"DOUTORADO","value":"3"},{"ano":"2008","nivel":"DOUTORADO","value":"7"},{"ano":"2009","nivel":"DOUTORADO","value":"5"},{"ano":"2010","nivel":"DOUTORADO","value":"7"},{"ano":"2011","nivel":"DOUTORADO","value":"8"},{"ano":"2012","nivel":"DOUTORADO","value":"10"},{"ano":"2013","nivel":"DOUTORADO","value":"17"},{"ano":"2014","nivel":"DOUTORADO","value":"24"},{"ano":"2015","nivel":"DOUTORADO","value":"24"},{"ano":"2016","nivel":"DOUTORADO","value":"31"},{"ano":"2017","nivel":"DOUTORADO","value":"39"},{"ano":"2018","nivel":"DOUTORADO","value":"8"},{"ano":"2019","nivel":"DOUTORADO","value":"9"}];
+    seriesME.data = [{"ano":"2008","nivel":"MESTRADO PROFISSIONALIZANTE","value":"1"},{"ano":"2009","nivel":"MESTRADO PROFISSIONALIZANTE","value":"4"},{"ano":"2010","nivel":"MESTRADO PROFISSIONALIZANTE","value":"8"},{"ano":"2011","nivel":"MESTRADO PROFISSIONALIZANTE","value":"8"},{"ano":"2012","nivel":"MESTRADO PROFISSIONALIZANTE","value":"11"},{"ano":"2013","nivel":"MESTRADO PROFISSIONALIZANTE","value":"22"},{"ano":"2014","nivel":"MESTRADO PROFISSIONALIZANTE","value":"33"},{"ano":"2015","nivel":"MESTRADO PROFISSIONALIZANTE","value":"55"},{"ano":"2016","nivel":"MESTRADO PROFISSIONALIZANTE","value":"58"},{"ano":"2017","nivel":"MESTRADO PROFISSIONALIZANTE","value":"79"},{"ano":"2018","nivel":"MESTRADO PROFISSIONALIZANTE","value":"47"},{"ano":"2019","nivel":"MESTRADO PROFISSIONALIZANTE","value":"29"}];
+    seriesDI.data = [{"ano":"2020","nivel":"DISSERTAÇÃO","value":"110"}];
+    seriesTE.data = [{"ano":"2020","nivel":"TESE","value":"22"}];
+
+    var bulletM = seriesM.bullets.push(new am4charts.CircleBullet());
+    bulletM.circle.fill = am4core.color("#fff");
+    bulletM.circle.strokeWidth = 3;
+
+    var bulletD = seriesD.bullets.push(new am4charts.CircleBullet());
+    bulletD.circle.fill = am4core.color("#fff");
+    bulletD.circle.strokeWidth = 3;
+
+    var bulletME = seriesME.bullets.push(new am4charts.CircleBullet());
+    bulletME.circle.fill = am4core.color("#fff");
+    bulletME.circle.strokeWidth = 3;
+    
+    var bulletDI = seriesDI.bullets.push(new am4charts.CircleBullet());
+    bulletDI.circle.fill = am4core.color("#fff");
+    bulletDI.circle.strokeWidth = 3;
+
+    var bulletTE = seriesTE.bullets.push(new am4charts.CircleBullet());
+    bulletTE.circle.fill = am4core.color("#fff");
+    bulletTE.circle.strokeWidth = 3;
+    
+    // Add cursor
+    chart.cursor = new am4charts.XYCursor();
+    chart.cursor.fullWidthLineX = true;
+    chart.cursor.xAxis = yearAxis;
+    chart.cursor.lineX.strokeWidth = 0;
+    chart.cursor.lineX.fill = am4core.color("#000");
+    chart.cursor.lineX.fillOpacity = 0.1;
+    
+    // Add scrollbar
+    chart.scrollbarX = new am4core.Scrollbar();
+    
+    // Add a guide
+    let range = valueAxis.axisRanges.create();
+    range.value = 25.61;
+    range.grid.stroke = am4core.color("#396478");
+    range.grid.strokeWidth = 1;
+    range.grid.strokeOpacity = 1;
+    range.grid.strokeDasharray = "3,3";
+    range.label.inside = true;
+    range.label.text = "Média";
+    range.label.fill = range.grid.stroke;
+    range.label.verticalCenter = "bottom";
+    
+    }); // end am4core.ready()
+    </script>
+    
+    <!-- HTML -->
+    <div id="chartdiv"></div>
