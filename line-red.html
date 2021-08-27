@@ -44,34 +44,35 @@
     seriesM.dataFields.valueX = "ano";
     seriesM.name = "MESTRADO";
     seriesM.strokeWidth = 3;
+    seriesM.stroke = "#C4D600"
 
     var seriesD = chart.series.push(new am4charts.LineSeries());
     seriesD.dataFields.valueY = "value";
     seriesD.dataFields.valueX = "ano";
     seriesD.name = "DOUTORADO";
     seriesD.strokeWidth = 3;
-    seriesD.stroke = chart.colors.next();
+    seriesD.stroke = "#FF9800"
 
     var seriesME = chart.series.push(new am4charts.LineSeries());
     seriesME.dataFields.valueY = "value";
     seriesME.dataFields.valueX = "ano";
     seriesME.name = "MESTRADO PROFISSIONALIZANTE";
     seriesME.strokeWidth = 3;
-    seriesME.stroke = chart.colors.next();
+    seriesME.stroke = "#EF6A00"
 
     var seriesDI = chart.series.push(new am4charts.LineSeries());
     seriesDI.dataFields.valueY = "value";
     seriesDI.dataFields.valueX = "ano";
     seriesDI.name = "DISSERTAÇÃO";
     seriesDI.strokeWidth = 3;
-    seriesDI.stroke = chart.colors.next();
+    seriesDI.stroke = "#563D82"
 
     var seriesTE = chart.series.push(new am4charts.LineSeries());
     seriesTE.dataFields.valueY = "value";
     seriesTE.dataFields.valueX = "ano";
     seriesTE.name = "TESE";
     seriesTE.strokeWidth = 3;
-    seriesTE.stroke = chart.colors.next();
+    seriesTE.stroke = "#6CACE4"
 
     seriesM.data = [{"ano":"1997","nivel":"MESTRADO","value":"1"},{"ano":"1999","nivel":"MESTRADO","value":"2"},{"ano":"2000","nivel":"MESTRADO","value":"2"},{"ano":"2002","nivel":"MESTRADO","value":"3"},{"ano":"2003","nivel":"MESTRADO","value":"5"},{"ano":"2004","nivel":"MESTRADO","value":"9"},{"ano":"2005","nivel":"MESTRADO","value":"12"},{"ano":"2006","nivel":"MESTRADO","value":"7"},{"ano":"2007","nivel":"MESTRADO","value":"13"},{"ano":"2008","nivel":"MESTRADO","value":"21"},{"ano":"2009","nivel":"MESTRADO","value":"25"},{"ano":"2010","nivel":"MESTRADO","value":"24"},{"ano":"2011","nivel":"MESTRADO","value":"35"},{"ano":"2012","nivel":"MESTRADO","value":"28"},{"ano":"2013","nivel":"MESTRADO","value":"59"},{"ano":"2014","nivel":"MESTRADO","value":"65"},{"ano":"2015","nivel":"MESTRADO","value":"99"},{"ano":"2016","nivel":"MESTRADO","value":"90"},{"ano":"2017","nivel":"MESTRADO","value":"135"},{"ano":"2018","nivel":"MESTRADO","value":"47"},{"ano":"2019","nivel":"MESTRADO","value":"33"}];
     seriesD.data = [{"ano":"1996","nivel":"DOUTORADO","value":"1"},{"ano":"2001","nivel":"DOUTORADO","value":"2"},{"ano":"2002","nivel":"DOUTORADO","value":"2"},{"ano":"2003","nivel":"DOUTORADO","value":"2"},{"ano":"2004","nivel":"DOUTORADO","value":"5"},{"ano":"2005","nivel":"DOUTORADO","value":"1"},{"ano":"2006","nivel":"DOUTORADO","value":"2"},{"ano":"2007","nivel":"DOUTORADO","value":"3"},{"ano":"2008","nivel":"DOUTORADO","value":"7"},{"ano":"2009","nivel":"DOUTORADO","value":"5"},{"ano":"2010","nivel":"DOUTORADO","value":"7"},{"ano":"2011","nivel":"DOUTORADO","value":"8"},{"ano":"2012","nivel":"DOUTORADO","value":"10"},{"ano":"2013","nivel":"DOUTORADO","value":"17"},{"ano":"2014","nivel":"DOUTORADO","value":"24"},{"ano":"2015","nivel":"DOUTORADO","value":"24"},{"ano":"2016","nivel":"DOUTORADO","value":"31"},{"ano":"2017","nivel":"DOUTORADO","value":"39"},{"ano":"2018","nivel":"DOUTORADO","value":"8"},{"ano":"2019","nivel":"DOUTORADO","value":"9"}];
