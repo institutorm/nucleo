@@ -2,12 +2,13 @@
 <style>
     body {
         font-family: Verdana;
+        font-size: 95%;
     }
     #chartdiv {
-      width: 100%;
+      width: 90%;
       height: 500px;
     }
-    
+
     </style>
     
     <!-- Resources -->
@@ -38,6 +39,11 @@
     yearAxis.dataFields.category = "ano";
     yearAxis.adjustLabelPrecision = false;
     yearAxis.maxPrecision = 0;
+    yearAxis.min = 1995;
+    yearAxis.max = 2022;
+    yearAxis.keepSelection = true;
+    yearAxis.renderer.labels.template.dx = -10;
+    yearAxis.renderer.minGridDistance = 70
     
     var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
     
