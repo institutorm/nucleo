@@ -16,7 +16,7 @@
     <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
     <script src="https://cdn.amcharts.com/lib/4/themes/spiritedaway.js"></script>
     <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
-    
+    <script src="https://cdn.amcharts.com/lib/4/lang/pt_BR.js"></script>
     <!-- Chart code -->
     <script>
     am4core.ready(function() {
@@ -30,7 +30,7 @@
     
     // Create chart instance
     var chart = am4core.create("chartdiv", am4charts.XYChart);
-
+    chart.language.locale = am4lang_pt_BR;
     chart.numberFormatter.numberFormat = "#";
     chart.legend = new am4charts.Legend();
     
