@@ -39,7 +39,7 @@ am4core.useTheme(am4themes_animated);
 var chart = am4core.create("chartdiv", am4charts.XYChart);
 chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
 chart.data = data;
-chart.colors.step = 2;
+chart.colors.step = 4;
 chart.padding(30, 30, 10, 30);
 chart.legend = new am4charts.Legend();
 
@@ -67,7 +67,7 @@ valueAxis.renderer.minWidth = 50;
 
   var bullet1 = series1.bullets.push(new am4charts.LabelBullet());
   bullet1.label.text = "{valueY}%";
-  bullet1.label.fill = am4core.color("#9c0000");
+  bullet1.label.fill = am4core.color("#ffffff");
   bullet1.locationY = 0.5;
 
   var series2 = chart.series.push(new am4charts.ColumnSeries());
