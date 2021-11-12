@@ -1,142 +1,89 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <!-- Styles -->
-<style>
-    #chartdiv {
-      width: 100%;
-    height:550px;
-    max-width:100%;
-    }
-    </style>
-    
-    <!-- Resources -->
-    <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
-    <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
-    <script src="https://cdn.amcharts.com/lib/4/plugins/forceDirected.js"></script>
-    <script src="https://cdn.amcharts.com/lib/4/themes/material.js"></script>
-    <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
-    
-    <!-- Chart code -->
-    <script>
-    am4core.ready(function() {
-    
-    // Themes begin
-    am4core.useTheme(am4themes_material);
-    am4core.useTheme(am4themes_animated);
-    // Themes end
-    
-    
-    
-    var chart = am4core.create("chartdiv", am4plugins_forceDirected.ForceDirectedTree);
-    var networkSeries = chart.series.push(new am4plugins_forceDirected.ForceDirectedSeries())
-    
-    chart.data = [
-      {
-        name: "Tecnologia e Educação",
-        children: [
-          {
-            name: "SP",
-            children: [
-              { name: "1", value: 8.2 },
-              { name: "2", value: 7 },
-              { name: "3", value: 2.8 },
-              { name: "4", value: 2.4},
-              { name: "5", value: 5.2 },
-              { name: "6", value: 1.2 },
-              { name: "7", value: 0.8 },
-              { name: "8", value: 3 },
-              { name: "9", value: 4.8 },
-              { name: "10", value: 0.6 },
-              { name: "11", value: 6.4 },
-              { name: "12", value: 3.4 },
-              { name: "13", value: 4.8 },
-              { name: "14", value: 1 }
-            ]
-          },
-          {
-            name: "AM",
-            children: [
-              { name: "1", value: 7 },
-              { name: "2", value: 6 },
-              { name: "3", value: 3 },
-              { name: "4", value: 5 },
-              { name: "5", value: 4 },
-              { name: "6", value: 6 },
-              { name: "7", value: 0 },
-              { name: "8", value: 1 },
-              { name: "9", value: 5 },
-              { name: "10", value: 0 },
-              { name: "11", value: 9 },
-              { name: "12", value: 3 },
-              { name: "13", value: 7 },
-              { name: "14", value: 4 }
-            ]
-          },
-          {
-            name: "RS",
-            children: [
-            { name: "1", value: 2 },
-              { name: "2", value: 4 },
-              { name: "3", value: 0 },
-              { name: "4", value: 2 },
-              { name: "5", value: 6 },
-              { name: "6", value: 1 },
-              { name: "7", value: 3 },
-              { name: "8", value: 1 },
-              { name: "9", value: 0 },
-              { name: "10", value: 1 },
-              { name: "11", value: 6 },
-              { name: "12", value: 4 },
-              { name: "13", value: 1 },
-              { name: "14", value: 1 }
-            ]
-          }
-        ]
-      }
-    ];
-    
-    networkSeries.dataFields.value = "value";
-    networkSeries.dataFields.name = "name";
-    networkSeries.dataFields.children = "children";
-    networkSeries.nodes.template.tooltipText = "{name}:{value}";
-    networkSeries.nodes.template.fillOpacity = 1;
-    
-    networkSeries.nodes.template.label.text = "{name}"
-    networkSeries.fontSize = 10;
-    
-    networkSeries.links.template.strokeWidth = 1;
-    
-    var hoverState = networkSeries.links.template.states.create("hover");
-    hoverState.properties.strokeWidth = 3;
-    hoverState.properties.strokeOpacity = 1;
-    
-    networkSeries.nodes.template.events.on("over", function(event) {
-      event.target.dataItem.childLinks.each(function(link) {
-        link.isHover = true;
-      })
-      if (event.target.dataItem.parentLink) {
-        event.target.dataItem.parentLink.isHover = true;
-      }
-    
-    })
-    
-    networkSeries.nodes.template.events.on("out", function(event) {
-      event.target.dataItem.childLinks.each(function(link) {
-        link.isHover = false;
-      })
-      if (event.target.dataItem.parentLink) {
-        event.target.dataItem.parentLink.isHover = false;
-      }
-    })
-    
-    }); // end am4core.ready()
-    </script>
+  <meta charset="utf-8" />
+  <link rel="shortcut icon" href="https://res.cloudinary.com/phonerefer/image/upload/v1575096088/ve0o2n85nfvgdatgqer2.jpg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#343a40" />
+  <meta
+          name="description"
+          content="Links To My Accounts | Developed By - Your Name"
+  />  
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+     <title>Links - Your Name</title>
+     <style>
+       /* body{
+         background-color: #faf8ef;
+       } */
+       h5{
+             color: #343a40;
+       }
+       .name{
+           color: #343a40;
+       }
+       .love{
+           color: #343a40 !important;
+       }
+       /*----------------- Mail-------------------- */
+       #email{
+           text-decoration: none;
+           float: right;
+           color:#343a40;
+       }
+       .footer{
+           margin-top: 5% !important;
+           margin-bottom: 10px;
+       }
+       @media (max-width: 479px) {
+            .footer{
+            margin-top: 35% !important;
+            }
+       }
+     </style>
 </head>
 <body>
-    <div id="chartdiv"></div>
+<div class="container">
+  <div class="media mt-5">
+    <img src="https://res.cloudinary.com/phonerefer/image/upload/v1575096088/ve0o2n85nfvgdatgqer2.jpg" class="m-3" alt="image" width="75px" height="75px">
+    <div class="media-body m-2">
+      <h5 class="align-items-center mt-2">Your Name</h5>
+      <p>Hello!
+      I am (Your Name)
+      Developer based in (Your City), (Your Country).</p>
+    </div>
+  </div>
+<div class="mt-4 list-group">
+  <a href="/bar-ee.html" class="list-group-item list-group-item-action" role="button" target="_blank">
+    Bar-EE
+  </a>
+  <a href="/bar.html" class="list-group-item list-group-item-action" role="button" target="_blank">
+    Bar
+  </a>
+  <a href="/coluna-ee.html" class="list-group-item list-group-item-action" role="button" target="_blank">
+    Coluna EE
+  </a>
+  <a href="/line-diversa-user.html" class="list-group-item list-group-item-action" role="button" target="_blank">
+    LineDiversa USER
+  </a>
+  <a href="/line-diversa-visu.html" class="list-group-item list-group-item-action" role="button" target="_blank">
+    Line Diversa Visu
+  </a>
+  <a href="/line-red.html" class="list-group-item list-group-item-action" role="button" target="_blank">
+    Line Red
+  </a>
+</div>
+        <!--------------------Footer---------------------------->
+  <div class="footer mt-5">
+    <hr/>
+    <h6>Made With <span class="love">♥</span> in (Your City), (Your Country)</h6>
+    <h6>
+      Proudly Hosted By
+      <a href="/" class="name" target="_blank"> (Your Name) </a>
+      <a id="email" href="mailto:Your Mail"> <i class="fa fa-envelope"> </i> </a>
+    </h6>
+  </div>
+</div>
 </body>
+  
 </html>
