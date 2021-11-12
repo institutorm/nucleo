@@ -39,7 +39,15 @@ am4core.useTheme(am4themes_animated);
 var chart = am4core.create("chartdiv", am4charts.XYChart);
 chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
 chart.data = data;
-chart.colors.step = 8;
+//chart.colors.step = 8;
+chart.colors.list = [
+  am4core.color("#b30000"),
+  am4core.color("#d98080"),
+  am4core.color("#a8d980"),
+  am4core.color("#50b300"),
+  am4core.color("#FFC75F"),
+  am4core.color("#F9F871")
+];
 chart.padding(30, 30, 10, 30);
 chart.legend = new am4charts.Legend();
 
@@ -53,6 +61,7 @@ valueAxis.max = 110;
 valueAxis.strictMinMax = true;
 valueAxis.calculateTotals = true;
 valueAxis.renderer.minWidth = 50;
+valueAxis.renderer.minGridDistance = 20;
 
 
   var series1 = chart.series.push(new am4charts.ColumnSeries());
@@ -100,7 +109,7 @@ valueAxis.renderer.minWidth = 50;
   var bullet3 = series3.bullets.push(new am4charts.LabelBullet());
   bullet3.label.text = "{valueY}%";
   bullet3.locationY = 0.5;
-  bullet3.label.fill = am4core.color("#ffffff");
+  bullet3.label.fill = am4core.color("#000000");
 
   var series4 = chart.series.push(new am4charts.ColumnSeries());
   series4.columns.template.width = am4core.percent(80);
